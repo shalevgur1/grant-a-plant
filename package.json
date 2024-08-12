@@ -1,0 +1,11 @@
+{
+  "name": "using-public-api",
+  "version": "1.0.0",
+  "description": "practicing the use of a public API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gur Shalev",
+  "license": "ISC"
+}
