@@ -1,0 +1,65 @@
+<%- include("partials/header.ejs") %>
+
+<body class="background-pattern">
+    <div class="px-4 text-center">
+
+        <section class="text-center container">
+            <div class="row pt-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-normal">Get a plant</h1>
+                <p class="lead text-body-secondary fw-normal">Please provide your garden design requirements below to receive plant recommendations that align with your vision.</p>
+                <form action="/send-design-request" method="POST">
+                    <!-- 2 column grid layout with text inputs for Hardiness and indoor/outdoor fields -->
+                    <div class="row mb-4">
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input name="hardiness" type="number" id="form6Example1" class="form-control" placeholder="Hardiness" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input name="door" list="doors" id="form6Example2" class="form-control" placeholder="Outdoor/Indoor" />
+                        <datalist id="doors">
+                            <option value="Indoor">
+                            <option value="Outdoor">
+                        </datalist>
+                        </div>
+                    </div>
+                    </div>
+                
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input name="email" type="email" id="form6Example5" class="form-control" placeholder="Enter Email" />
+                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
+                    </div>
+
+                    <!-- Title input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input name="title" type="text" id="form6Example5" class="form-control" placeholder="Enter title for your post" />
+                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
+                    </div>
+                
+                    <!-- Message input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea name="postContent" class="form-control" id="form6Example7" rows="8"  placeholder="Write your post here!"></textarea>
+                    <!-- <label class="form-label" for="form6Example7">Text Box</label> -->
+                    </div>
+
+                    <!-- Publish button -->
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 granate-red-btn">Publish Post</button>
+                </form>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="overflow-hidden" style="max-height: 58vh;">
+            <div class="container px-5">
+            <img src="imgs/home-page-flower.png" class="img-fluid" alt="Flower image" width="430" height="320" loading="lazy">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
