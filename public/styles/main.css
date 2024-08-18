@@ -11,3 +11,29 @@
     border: none !important;
     background-color: #387F39 !important;
 }
+
+.ticker-button {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+}
+
+.ticker-button.active {
+    background-color: green;
+    color: white;
+}
+.ticker-button.inactive {
+    background-color: white;
+    color: black;
+}
+
+::placeholder {
+    color: #212529 !important;
+    opacity: 1 !important; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+    color: #212529 !important;
+}

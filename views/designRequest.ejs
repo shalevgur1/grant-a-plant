@@ -7,42 +7,72 @@
             <div class="row pt-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-normal">Get a plant</h1>
-                <p class="lead text-body-secondary fw-normal">Please provide your garden design requirements below to receive plant recommendations that align with your vision.</p>
+                <p class="lead fw-normal">
+                    Please provide your garden requirements below to receive plant recommendations that align with your vision and necesities.
+                </p>
+                <p class="text-body-secondary fw-bold">
+                    * Fields that are left unspecified will not be considered in the requirements.
+                </p>
                 <form action="/send-design-request" method="POST">
-                    <!-- 2 column grid layout with text inputs for Hardiness and indoor/outdoor fields -->
+                    <!-- 3 column grid layout with text inputs for Hardiness, indoor/outdoor and poisonous fields -->
                     <div class="row mb-4">
-                    <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                        <input name="hardiness" type="number" id="form6Example1" class="form-control" placeholder="Hardiness" />
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <select class="form-select" aria-label="hardiness field">
+                                    <option disabled selected>Hardiness</option>
+                                    <% for (let i = 1; i < 14; i++) { %>
+                                        <option><%= i %></option>
+                                    <% } %>
+                                </select>
+                            <!-- <input name="hardiness" type="number" class="form-control" placeholder="Hardiness" /> -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                        <input name="door" list="doors" id="form6Example2" class="form-control" placeholder="Outdoor/Indoor" />
-                        <datalist id="doors">
-                            <option value="Indoor">
-                            <option value="Outdoor">
-                        </datalist>
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <select class="form-select" aria-label="Indoor or outdoor field">
+                                    <option disabled selected>Outdoor/Indoor</option>
+                                    <option value="outdoor">Outdoor</option>
+                                    <option value="indoor">Indoor</option>
+                                </select>
+                            <!-- <input name="door" type="text" id="form6Example2" class="form-control" placeholder="Outdoor/Indoor" /> -->
+                            </div>
                         </div>
-                    </div>
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <button type="button" class="btn btn-block ticker-button inactive" id="tickerButton">No poisonous plants</button>
+                            </div>
+                        </div>
                     </div>
                 
-                    <!-- Email input -->
+                    <!-- Number of edible plants -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                    <input name="email" type="email" id="form6Example5" class="form-control" placeholder="Enter Email" />
-                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
+                        <input name="edibleAmount" type="number" id="form6Example5" class="form-control" placeholder="Amount of edible plants" />
                     </div>
 
-                    <!-- Title input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                    <input name="title" type="text" id="form6Example5" class="form-control" placeholder="Enter title for your post" />
-                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
-                    </div>
-                
-                    <!-- Message input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                    <textarea name="postContent" class="form-control" id="form6Example7" rows="8"  placeholder="Write your post here!"></textarea>
-                    <!-- <label class="form-label" for="form6Example7">Text Box</label> -->
+                    <!-- 2 column grid layout with select inputs for amount of sunlight and amount of watring fields -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <select class="form-select" aria-label="Amount of watring select">
+                                    <option disabled selected>Amount of watring</option>
+                                    <option value="frequent">Frequent</option>
+                                    <option value="average">Average</option>
+                                    <option value="minimum">Minimum</option>
+                                    <option value="none">None</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <select class="form-select" aria-label="Amount of sunlight select">
+                                    <option disabled selected>Amount of sunlight</option>
+                                    <option value="full_shade">Full Shade</option>
+                                    <option value="part_shade">Part Shade</option>
+                                    <option value="sun-part_shade">Sun Part Shade</option>
+                                    <option value="full_sun">Full Sun</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Publish button -->
@@ -60,6 +90,5 @@
         </div>
 
     </div>
-</body>
 
-</html>
+<%- include("partials/footer.ejs") %>
