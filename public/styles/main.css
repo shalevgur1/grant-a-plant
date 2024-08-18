@@ -3,7 +3,7 @@
 }
 
 .dark-green-txt{
-    color: #eb3a5b;
+    color: #387F39;
 }
 
 .customize-btn{
@@ -36,4 +36,9 @@
 
 ::-ms-input-placeholder { /* Edge 12 -18 */
     color: #212529 !important;
+}
+
+.granate-red-btn {
+    background-color: #387F39 !important;
+    border: none !important;
 }
