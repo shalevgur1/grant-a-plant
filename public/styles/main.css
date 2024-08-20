@@ -42,3 +42,12 @@
     background-color: #387F39 !important;
     border: none !important;
 }
+
+.list-group-result-page{
+    background-color: transparent !important;
+}
+
+.result-img{
+    object-fit: cover !important;
+    border-radius: 50%;
+}

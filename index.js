@@ -11,6 +11,7 @@ import axios from "axios";
 const port = 3000;
 const app = express();
 const API_BASE_URL = "https://perenual.com/";
+const MAX_PLANTS_OUTPUT = 10;
 
 // Seting midleware and the static folder
 app.use(bodyParser.urlencoded({extended: true}));
@@ -39,15 +40,37 @@ app.get("/design-request", (req, res) => {
 
 app.post("/send-design-request", async (req, res) => {
     // Sending a request to perenual.com API
-    console.log(req.body);
-    //console.log(req);
-    // try {
-    //     const result = await axios.get(API_URL + "/secrets/" + searchId, config);
-    //     res.render("index.ejs", { content: JSON.stringify(result.data) });
-    // } catch (error) {
-    //     res.render("index.ejs", { content: JSON.stringify(error.response.data) });
-    // }
+    const params = buildApiParam(req.body);
+    const fullHttpReq = API_BASE_URL + "api/species-list?" + authorizationApiKey + params;
+    try {
+        const result = await axios.get(fullHttpReq);
+        // Cutting the API data result to not exceed the defined maximum.
+        const outputData = result.data.slice(0, MAX_PLANTS_OUTPUT);
+        res.render("resultPlantList.ejs", { content: JSON.stringify(outputData) });
+    } catch (error) {
+        console.log("Error with accessing external API...");
+        //res.render("resultPlantList.ejs", { content: JSON.stringify(error.response.data) });
+    }
 
     // Rendering the resault page with the retrived data from the API
     res.render("resultPlantList.ejs");
 });
+
+app.get("/send-design-request", async (req, res) => {
+    res.render("resultPlantList.ejs");
+});
+
+/* Auxilery Functions */
+function buildApiParam(requirements){
+    var params = "";
+    const reqEntries = Object.entries(requirements);
+    for (let i = 0; i < reqEntries.length; i++){
+        const [key, value] = reqEntries[i];
+        if (!(value === "false" || !value))
+            if (key === "edible")
+                params += "&" + key + "=" + 1;
+            else
+                params += "&" + key + "=" + value;
+    }
+    return params
+}

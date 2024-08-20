@@ -29,33 +29,33 @@
                         </div>
                         <div class="col">
                             <div data-mdb-input-init class="form-outline">
-                                <select name="door" class="form-select" aria-label="Indoor or outdoor field">
+                                <select name="indoor" class="form-select" aria-label="Indoor or outdoor field">
                                     <option disabled selected>Outdoor/Indoor</option>
                                     <option value="">Not relevant</option>
-                                    <option value="outdoor">Outdoor</option>
-                                    <option value="indoor">Indoor</option>
+                                    <option value="">Outdoor</option>
+                                    <option value="1">Indoor</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <div data-mdb-input-init class="form-outline">
                                 <button type="button" class="btn btn-block ticker-button inactive" id="tickerButton">No poisonous plants</button>
-                                <input type="hidden" name="noPoisonous" id="poisonousInput" value="false" />
+                                <input type="hidden" name="poisonous" id="poisonousInput" value="" />
                             </div>
                         </div>
                     </div>
                 
                     <!-- Number of edible plants -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input name="edibleAmount" type="number" id="form6Example5" class="form-control" placeholder="Amount of edible plants" min="0" />
+                        <input name="edible" type="number" id="form6Example5" class="form-control" placeholder="Amount of edible plants" min="0" />
                     </div>
 
-                    <!-- 2 column grid layout with select inputs for amount of sunlight and amount of watring fields -->
+                    <!-- 2 column grid layout with select inputs for amount of sunlight and amount of watering fields -->
                     <div class="row mb-4">
                         <div class="col">
                             <div data-mdb-input-init class="form-outline">
-                                <select name="watring" class="form-select" aria-label="Amount of watring select">
-                                    <option disabled selected>Amount of watring</option>
+                                <select name="watering" class="form-select" aria-label="Amount of watering select">
+                                    <option disabled selected>Amount of watering</option>
                                     <option value="">Not relevant</option>
                                     <option value="frequent">Frequent</option>
                                     <option value="average">Average</option>

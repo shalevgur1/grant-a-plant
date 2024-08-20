@@ -13,7 +13,7 @@
                 // Toggle CSS class to change the appearnce of the button according to the different states
                 $(this).toggleClass('active inactive');
                 // Update hidden input value based on button state
-                $('#poisonousInput').val($(this).hasClass('active') ? 'true' : 'false');
+                $('#poisonousInput').val($(this).hasClass('active') ? '0' : '');
             });
 
             
