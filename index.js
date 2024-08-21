@@ -65,10 +65,7 @@ function buildApiParam(requirements){
     for (let i = 0; i < reqEntries.length; i++){
         const [key, value] = reqEntries[i];
         if (!(value === "false" || !value))
-            if (key === "edible")
-                params += "&" + key + "=" + 1;
-            else
-                params += "&" + key + "=" + value;
+            params += "&" + key + "=" + value;
     }
     return params
 }
