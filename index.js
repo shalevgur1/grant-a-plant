@@ -3,6 +3,8 @@
 // This website uses the perenual.com API to retrieve data from a plant database
 // and makes this information accessible to the end user in a user-friendly way.
 
+// Generate your API key at: https://perenual.com/docs/api
+
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
@@ -45,20 +47,15 @@ app.post("/send-design-request", async (req, res) => {
     try {
         const result = await axios.get(fullHttpReq);
         // Cutting the API data result to not exceed the defined maximum.
-        const outputData = result.data.slice(0, MAX_PLANTS_OUTPUT);
-        res.render("resultPlantList.ejs", { content: JSON.stringify(outputData) });
+        const outputData = result.data.data.slice(0, MAX_PLANTS_OUTPUT);
+        // Rendering the resault page with the retrived data from the API
+        res.render("resultPlantList.ejs", { content: outputData, hardiness: req.body.hardiness });
     } catch (error) {
-        console.log("Error with accessing external API...");
+        console.log(error);
         //res.render("resultPlantList.ejs", { content: JSON.stringify(error.response.data) });
     }
-
-    // Rendering the resault page with the retrived data from the API
-    res.render("resultPlantList.ejs");
 });
 
-app.get("/send-design-request", async (req, res) => {
-    res.render("resultPlantList.ejs");
-});
 
 /* Auxilery Functions */
 function buildApiParam(requirements){

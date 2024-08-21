@@ -18,9 +18,8 @@
                     <div class="row mb-4">
                         <div class="col">
                             <div data-mdb-input-init class="form-outline">
-                                <select name="hardiness" class="form-select" aria-label="hardiness field">
-                                    <option disabled selected>Hardiness</option>
-                                    <option value="">Not relevant</option>
+                                <select name="hardiness" class="form-select" aria-label="hardiness field" required>
+                                    <option value="" disabled selected>Hardiness (required)</option>
                                     <% for (let i = 1; i < 14; i++) { %>
                                         <option><%= i %></option>
                                     <% } %>
