@@ -4,6 +4,7 @@
 // and makes this information accessible to the end user in a user-friendly way.
 
 // Generate your API key at: https://perenual.com/docs/api
+// * Note that some of the plants requirements will require the Premium plan of perenual.com (which we don't have :)
 
 import express from "express";
 import bodyParser from "body-parser";
