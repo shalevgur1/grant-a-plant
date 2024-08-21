@@ -3,10 +3,11 @@
 
 <body class="background-pattern">
     <div class="px-4 pt-5 text-center mt-5">
-        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Your plants are ready!</h1>
+        
         
         <!-- Generating a description block for every resulted plant recived from the API -->
-        <% if(locals.content) { %>
+        <% if(locals.content && locals.content.length !== 0) { %>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Your plants are ready!</h1>
             <% for(let i = 0; i < content.length; i++) { %>
 
                 <div class="container col-xxl-8 px-4 py-4">
@@ -53,6 +54,9 @@
                   </div>
                 
             <% } %>
+        <% } else { %>
+            <h2 class="fw-normal text-body-secondary mb-3">We couldn't find any plants that meet your requirements.</h2>
+            <h3 class="fw-bold text-body-secondary mb-3">Try again by pressing the button below.</h3>
         <% } %>
 
         <!-- Gets the design page for make another plant request -->
